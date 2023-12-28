@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Sandbox</title>
+</head>
+<body>
+    <button id="getText">Get Text</button>
+    <div id="output"></div><!--Created a where the data can be displayed from the console-->
+    <script>
+        document.getElementById('getText').addEventListener
+        ('click',getText);
+
+        function getText(){
+            fetch('sample.txt') /* the fetch function fetches a url
+             or file name is the parameter . It returns a promise-a placeholder
+             the response we are going to get ;to work with promises we need to use .then */
+            .then(function(res){ /*which takes in a function whose parameter is a response*/
+                return res.text();
+             })//console.log ni ya kuview from the console
+            .then(function(data){
+                document.getElementById('output').innerHTML = data;
+            })
+            .catch((err)=> console.log(err))
+        }
+    </script>
+</body>
+</html>
